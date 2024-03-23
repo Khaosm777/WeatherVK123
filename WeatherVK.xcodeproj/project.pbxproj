@@ -58,9 +58,7 @@
 		8405C28A2BAA58FA00BEB84D /* WeatherVK */ = {
 			isa = PBXGroup;
 			children = (
-				8405C28F2BAA58FA00BEB84D /* MainViewController.swift */,
-				8486DF892BAA5B2D006CAEFD /* MainView.swift */,
-				8486DF8C2BAA63C5006CAEFD /* TableViewCell.swift */,
+				8486DF8E2BAF5378006CAEFD /* Main */,
 				8486DF8B2BAA5B8D006CAEFD /* System */,
 				8405C2992BAA58FB00BEB84D /* Info.plist */,
 			);
@@ -76,6 +74,16 @@
 				8405C2962BAA58FB00BEB84D /* LaunchScreen.storyboard */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		8486DF8E2BAF5378006CAEFD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8405C28F2BAA58FA00BEB84D /* MainViewController.swift */,
+				8486DF892BAA5B2D006CAEFD /* MainView.swift */,
+				8486DF8C2BAA63C5006CAEFD /* TableViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

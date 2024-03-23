@@ -11,18 +11,27 @@ final class MainView: UIView {
     
     //MARK: - UI Elements
     
+    private let iv: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "фон1")
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
     private let labelCity: UILabel = {
         let label = UILabel()
         label.text = "Москва"
         label.font = .boldSystemFont(ofSize: 25)
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let labelTemp: UILabel = {
         let label = UILabel()
-        label.text = "25"
+        label.text = "4"
         label.font = .boldSystemFont(ofSize: 40)
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,6 +39,7 @@ final class MainView: UIView {
     private let labelWind: UILabel = {
         let label = UILabel()
         label.text = "Ветренно"
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,6 +47,7 @@ final class MainView: UIView {
     private let labelCloudiness: UILabel = {
         let label = UILabel()
         label.text = "Преимущество облачно"
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,6 +62,7 @@ final class MainView: UIView {
     private let labelMax: UILabel = {
         let label = UILabel()
         label.text = "Макс: 5, "
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,14 +70,17 @@ final class MainView: UIView {
     private let labelMin: UILabel = {
         let label = UILabel()
         label.text = "Мин: 2"
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let tableView: UITableView = {
         let tv = UITableView()
+        tv.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: 0, blue: 20, alpha: 0.2))
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.rowHeight = 90
+        tv.rowHeight = 70
+        tv.layer.cornerRadius = 20
         return tv
     }()
     
@@ -95,17 +110,28 @@ final class MainView: UIView {
         addSubview(tableView)
         
         tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 100).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive =  true
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive =  true
+        tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupLayout() {
+        setupImageView()
         setupLabelCity()
         setupLabelTemp()
         setupLabelWind()
         setupLabelCloudiness()
         setupStackView()
+    }
+    
+    private func setupImageView() {
+        addSubview(iv)
+        
+        iv.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        iv.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        iv.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        iv.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+
     }
     
     private func setupLabelCity() {
@@ -163,6 +189,8 @@ extension MainView: UITableViewDataSource {
         }
         cell.configure()
         
+        cell.selectionStyle = .none
+        
         return cell
     }
 }
@@ -175,7 +203,7 @@ extension MainView: UITableViewDelegate {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50)) // Здесь задайте размеры вашего заголовка
         
         // Создайте UILabel и настройте его
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableView.frame.size.width - 20, height: 50))
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableView.frame.size.width, height: 30))
         label.text = "Прогноз на 7 дней"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
@@ -187,6 +215,6 @@ extension MainView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 30
     }
 }
