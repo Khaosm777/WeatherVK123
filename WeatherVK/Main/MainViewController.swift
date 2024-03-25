@@ -37,7 +37,7 @@ final class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.city = city
                 
-                NetworkService.shared.getWeather(city: "Moscow") { [weak self] values in
+                NetworkService.shared.getWeather(city: city) { [weak self] values in
                     DispatchQueue.main.async {
                         self?.changeTextUi(values: values)
                         self?.forecasts.append(values.list[0])
@@ -49,8 +49,6 @@ final class MainViewController: UIViewController {
                             }
                             self?.forecastsByDay[(self?.dateFormatter(str: elem.dtTxt))!, default: []].append(elem.main.tempMin)
                             self?.forecastsByDay[(self?.dateFormatter(str: elem.dtTxt))!]?.append(elem.main.tempMax)
-                            print(elem.dtTxt)
-                            print(Int(elem.main.temp - 273.15))
                         }
                         DispatchQueue.main.async {
                             self?.mainView.tableView.reloadData()
