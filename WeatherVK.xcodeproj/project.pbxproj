@@ -14,6 +14,9 @@
 		8405C2982BAA58FB00BEB84D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405C2962BAA58FB00BEB84D /* LaunchScreen.storyboard */; };
 		8486DF8A2BAA5B2D006CAEFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486DF892BAA5B2D006CAEFD /* MainView.swift */; };
 		8486DF8D2BAA63C5006CAEFD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486DF8C2BAA63C5006CAEFD /* TableViewCell.swift */; };
+		8486DF902BAF5E04006CAEFD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486DF8F2BAF5E04006CAEFD /* LocationManager.swift */; };
+		8486DF942BAF6D66006CAEFD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486DF932BAF6D66006CAEFD /* NetworkService.swift */; };
+		8486DF962BAF9360006CAEFD /* WetherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486DF952BAF9360006CAEFD /* WetherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		8405C2992BAA58FB00BEB84D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8486DF892BAA5B2D006CAEFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8486DF8C2BAA63C5006CAEFD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		8486DF8F2BAF5E04006CAEFD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8486DF932BAF6D66006CAEFD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8486DF952BAF9360006CAEFD /* WetherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,9 @@
 				8486DF8E2BAF5378006CAEFD /* Main */,
 				8486DF8B2BAA5B8D006CAEFD /* System */,
 				8405C2992BAA58FB00BEB84D /* Info.plist */,
+				8486DF932BAF6D66006CAEFD /* NetworkService.swift */,
+				8486DF8F2BAF5E04006CAEFD /* LocationManager.swift */,
+				8486DF952BAF9360006CAEFD /* WetherAPI.swift */,
 			);
 			path = WeatherVK;
 			sourceTree = "<group>";
@@ -158,8 +167,11 @@
 			files = (
 				8486DF8D2BAA63C5006CAEFD /* TableViewCell.swift in Sources */,
 				8405C2902BAA58FA00BEB84D /* MainViewController.swift in Sources */,
+				8486DF902BAF5E04006CAEFD /* LocationManager.swift in Sources */,
 				8486DF8A2BAA5B2D006CAEFD /* MainView.swift in Sources */,
+				8486DF942BAF6D66006CAEFD /* NetworkService.swift in Sources */,
 				8405C28C2BAA58FA00BEB84D /* AppDelegate.swift in Sources */,
+				8486DF962BAF9360006CAEFD /* WetherAPI.swift in Sources */,
 				8405C28E2BAA58FA00BEB84D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

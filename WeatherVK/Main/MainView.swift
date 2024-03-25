@@ -18,35 +18,35 @@ final class MainView: UIView {
         return iv
     }()
     
-    private let labelCity: UILabel = {
+    let labelCity: UILabel = {
         let label = UILabel()
-        label.text = "Москва"
+        label.text = "-"
         label.font = .boldSystemFont(ofSize: 25)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let labelTemp: UILabel = {
+    let labelTemp: UILabel = {
         let label = UILabel()
-        label.text = "4"
+        label.text = "-"
         label.font = .boldSystemFont(ofSize: 40)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let labelWind: UILabel = {
+    let labelWind: UILabel = {
         let label = UILabel()
-        label.text = "Ветренно"
+        label.text = "-"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let labelCloudiness: UILabel = {
+    let labelCloudiness: UILabel = {
         let label = UILabel()
-        label.text = "Преимущество облачно"
+        label.text = "-"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,23 +59,23 @@ final class MainView: UIView {
         return sv
     }()
     
-    private let labelMax: UILabel = {
+    let labelMax: UILabel = {
         let label = UILabel()
-        label.text = "Макс: 5, "
+        label.text = "-"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let labelMin: UILabel = {
+    let labelMin: UILabel = {
         let label = UILabel()
-        label.text = "Мин: 2"
+        label.text = "-"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: 0, blue: 20, alpha: 0.2))
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -102,14 +102,10 @@ final class MainView: UIView {
     //MARK: - Methods
     
     private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseId)
         
         addSubview(tableView)
         
-        tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 100).isActive = true
+        tableView.topAnchor.constraint(equalTo: labelCloudiness.bottomAnchor, constant: 100).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive =  true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
@@ -131,7 +127,7 @@ final class MainView: UIView {
         iv.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         iv.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         iv.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-
+        
     }
     
     private func setupLabelCity() {
@@ -168,30 +164,8 @@ final class MainView: UIView {
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: labelCloudiness.bottomAnchor, constant: 12).isActive = true
         
-        stackView.addArrangedSubview(labelMax)
         stackView.addArrangedSubview(labelMin)
-    }
-}
-
-//MARK: - UITableViewDataSourse
-
-extension MainView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: TableViewCell.reuseId,
-            for: indexPath)
-                as? TableViewCell else {
-            fatalError("Не получилось сделать таблицу")
-        }
-        cell.configure()
-        
-        cell.selectionStyle = .none
-        
-        return cell
+        stackView.addArrangedSubview(labelMax)
     }
 }
 
@@ -213,7 +187,7 @@ extension MainView: UITableViewDelegate {
         
         return headerView
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }

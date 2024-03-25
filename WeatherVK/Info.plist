@@ -19,5 +19,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Мы используем ваше местоположение, чтобы настроить погоду в вашем городе.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Мы используем ваше местоположение, чтобы улучшить ваш опыт использования приложения.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Мы используем ваше местоположение, даже когда приложение закрыто, для обновления информации.</string>
 </dict>
 </plist>
